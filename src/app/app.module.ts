@@ -5,26 +5,25 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginPage } from './pages/admin/login/login';
-import { ClientListPage } from './pages/client/list/page';
+import { ClientModule } from './pages/client/client.module';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginPage },
-  { path: 'client/list', component: ClientListPage },
   { path: '*', redirectTo: '/login'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPage,
-    ClientListPage
+    LoginPage
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )    
+    ),
+    ClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
