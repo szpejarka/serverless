@@ -1,0 +1,9 @@
+<label>Name:
+    <input #userName type="text"/>
+</label>
+<label>Password: 
+    <input #password type="password"/>
+</label>
+<button (click)="clickLogin(userName.value,password.value)">Login</button>
+{{muser}}
+{{mpass}}
