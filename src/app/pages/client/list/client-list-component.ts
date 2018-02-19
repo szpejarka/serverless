@@ -3,22 +3,19 @@ import { ClientService } from '../service/client.service';
 import { Client } from '../service/client.model';
 
 @Component({
-  selector: 'client-list',
-  templateUrl: './template.html'
+  selector: 'app-client-list',
+  templateUrl: './client-list-template.html'
 })
-export class ClientListPage implements OnInit {
+export class ClientListComponent implements OnInit {
 
   clientService: ClientService;
   clients: Client[];
 
-  constructor(clientService: ClientService) 
-  { 
+  constructor(clientService: ClientService) {
     this.clientService = clientService;
   }
 
   ngOnInit() {
     this.clients = this.clientService.getAll();
   }
-
-
 }

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'login',
+  selector: 'app-login',
   templateUrl: './login.html'
 })
-export class LoginPage implements OnInit {
-  muser : string;
-  mpass : string;
+export class LoginComponent implements OnInit {
+  muser: string;
+  mpass: string;
 
 
   constructor() { }
@@ -14,10 +14,8 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  clickLogin(user: string, password: string)
-  {
+  clickLogin(user: string, password: string) {
     this.muser = user;
     this.mpass = password;
   }
-
 }

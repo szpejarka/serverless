@@ -6,11 +6,10 @@ export class ClientService {
 
   constructor() { }
 
-  getAll() : Client[]
-  {
-    var list: Client[] = [
-      { Name: "Client 1", Address: "Oak Park 1", Description: ""},
-      { Name: "Client 2", Address: "Oak Park 2", Description: ""}
+  getAll(): Client[] {
+    const list: Client[] = [
+      { Name: 'Client 1', Address: 'Oak Park 1', Description: ''},
+      { Name: 'Client 2', Address: 'Oak Park 2', Description: ''}
     ];
     return list;
   }
