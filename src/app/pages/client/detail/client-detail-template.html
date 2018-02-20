@@ -1,2 +1,4 @@
-<h1>Client Detail</h1>
-<label>Client Name:<input type="text"/></label>
+<div *ngIf="client">
+    <h1>Client Detail {{client.Name}}</h1>
+    <label>Client Name:<input [(ngModel)]="client.Name"/></label>
+</div>
