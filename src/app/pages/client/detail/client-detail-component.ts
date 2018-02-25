@@ -4,6 +4,8 @@ import 'rxjs/add/operator/switchMap';
 
 import { ClientService } from '../service/client.service';
 import { Client } from '../service/client.model';
+import { ObservableInput } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-client-detail',
@@ -12,7 +14,8 @@ import { Client } from '../service/client.model';
 export class ClientDetailComponent implements OnInit {
 
   clientService: ClientService;
-  @Input() client: Client;
+  client: Client;
+  client$: Observable<Client>;
 
   constructor(clientService: ClientService,  private route: ActivatedRoute,
     private router: Router,) {
@@ -22,7 +25,7 @@ export class ClientDetailComponent implements OnInit {
   ngOnInit() {
     this.client$ = this.route.paramMap
     .switchMap((params: ParamMap) =>
-      this.clientService.get(params.get('id')));
-    
+      this.clientService.get(parseInt( params.get('id') ) ));
+     
   }
 }
