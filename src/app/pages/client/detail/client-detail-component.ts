@@ -15,14 +15,22 @@ export class ClientDetailComponent implements OnInit {
   @Input() client: Client;
 
   constructor(clientService: ClientService,  private route: ActivatedRoute,
-    private router: Router,) {
+    private router: Router) {
     this.clientService = clientService;
   }
 
   ngOnInit() {
-    this.client$ = this.route.paramMap
+//    this.client = this.clientService.get(0);
+    this.route.params.subscribe(
+      (params) =>
+      {
+        this.client = this.clientService.get(parseInt(params['id'], 10) );
+      }
+    );
+    /*
+    this.client = this.route.paramMap
     .switchMap((params: ParamMap) =>
-      this.clientService.get(params.get('id')));
-    
+      this.clientService.get(parseInt(params.get('id'),10));
+    */
   }
 }
