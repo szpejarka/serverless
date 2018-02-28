@@ -5,8 +5,8 @@ import { Client } from './client.model';
 export class ClientService {
 
   list: Client[] = [
-    { ID:0, Name: 'Client 1', Address: 'Oak Park 1', Description: ''},
-    { ID:1, Name: 'Client 2', Address: 'Oak Park 2', Description: ''}
+    { ID: 0 , Name: 'Client 1', Address: 'Oak Park 1', Description: ''},
+    { ID: 1 , Name: 'Client 2', Address: 'Oak Park 2', Description: ''}
   ];
 
 
