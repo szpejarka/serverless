@@ -13,6 +13,9 @@ export class ClientDetailComponent implements OnInit {
 
   clientService: ClientService;
   @Input() client: Client;
+  name: string;
+  desc: string;
+  address: string;
 
   constructor(clientService: ClientService,  private route: ActivatedRoute,
     private router: Router) {
@@ -25,6 +28,10 @@ export class ClientDetailComponent implements OnInit {
       (params) =>
       {
         this.client = this.clientService.get(parseInt(params['id'], 10) );
+        this.name = this.client.Name;
+        this.address = this.client.Address;
+        this.desc = this.client.Description;
+
       }
     );
     /*
