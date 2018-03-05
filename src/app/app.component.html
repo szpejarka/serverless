@@ -1,9 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<h2>Serverless App</h2>
-<nav>
-  <a routerLink="/admin/login" routerLinkActive="active">Login</a>
-  <a routerLink="/client" routerLinkActive="active">Clients</a>
+<nav class="navbar ">
+  <div class="container">
+    <a class="navbar-brand">Serverless</a>
+    <ul class="nav navbar-nav" routerLinkActive="active">
+      <li class="nav-item"><a routerLink="/admin/login" class="nav-link" >Login</a></li>
+      <li class="nav-item"><a routerLink="/client"  class="nav-link" >Clients</a></li>
+    </ul>      
+    <router-outlet></router-outlet>
+  </div>
 </nav>
-<router-outlet></router-outlet>
 

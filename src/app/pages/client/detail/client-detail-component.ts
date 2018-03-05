@@ -14,8 +14,11 @@ import { Observable } from 'rxjs/Observable';
 export class ClientDetailComponent implements OnInit {
 
   clientService: ClientService;
-  client: Client;
-  client$: Observable<Client>;
+  @Input() client: Client;
+  name: string;
+  desc: string;
+  address: string;
+
 
   constructor(clientService: ClientService,  private route: ActivatedRoute,
     private router: Router) {
@@ -28,11 +31,20 @@ export class ClientDetailComponent implements OnInit {
       (params) =>
       {
         this.client = this.clientService.get(parseInt(params['id'], 10) );
+        this.name = this.client.Name;
+        this.address = this.client.Address;
+        this.desc = this.client.Description;
+
       }
     );
     /*
     this.client = this.route.paramMap
     .switchMap((params: ParamMap) =>
+<<<<<<< HEAD
+=======
+      this.clientService.get(parseInt( params.get('id') ) ));
+     
+>>>>>>> 055e0bbb9999f54f951980e14ee296d777ce3ece
       this.clientService.get(parseInt(params.get('id'),10));
     */
   }
