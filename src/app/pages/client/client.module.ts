@@ -7,10 +7,11 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ClientListItemComponent } from './list/client-list-item-component';
 import { ClientDetailComponent } from './detail/client-detail-component';
+import { AuthGuard } from '../auth-guard-service';
 
 const clientRoutes: Routes = [
-  { path: 'client/:id', component: ClientDetailComponent},
-  { path: 'client',  component: ClientListComponent}
+  { path: 'client/:id', component: ClientDetailComponent, canActivate: [AuthGuard]},
+  { path: 'client',  component: ClientListComponent, canActivate: [AuthGuard]}
   ];
 
 @NgModule({
@@ -25,6 +26,6 @@ const clientRoutes: Routes = [
         RouterModule.forChild(clientRoutes),
     ],
     exports: [RouterModule],
-    providers: [ClientService]
+    providers: [ClientService,AuthGuard]
   })
   export class ClientModule { }
