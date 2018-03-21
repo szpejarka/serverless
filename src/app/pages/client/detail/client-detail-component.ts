@@ -40,11 +40,8 @@ export class ClientDetailComponent implements OnInit {
     /*
     this.client = this.route.paramMap
     .switchMap((params: ParamMap) =>
-<<<<<<< HEAD
-=======
       this.clientService.get(parseInt( params.get('id') ) ));
      
->>>>>>> 055e0bbb9999f54f951980e14ee296d777ce3ece
       this.clientService.get(parseInt(params.get('id'),10));
     */
   }

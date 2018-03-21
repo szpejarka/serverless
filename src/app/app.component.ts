@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  shouldRun: boolean = false;
+  toggleMenu()
+  {
+    this.shouldRun = !this.shouldRun;
+  }
 }

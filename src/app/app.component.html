@@ -1,11 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 
-<nav class="nav nav-tabs">
-    <ul class="nav navbar-nav" routerLinkActive="active">
-      <li class="nav-item"><a routerLink="/admin/login" class="nav-link" >Login</a></li>
-      <li class="nav-item"><a routerLink="/client"  class="nav-link" >Clients</a></li>
-    </ul>
-</nav>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="example-container" >
+    <mat-sidenav #sidenav mode="side"  >Sidenav content
+        <mat-nav-list class="nav nav-tabs">
+
+              <a mat-list-item routerLink="/admin/login" class="nav-link" >Login</a>
+              <a mat-list-item routerLink="/client" class="nav-link" >Client</a>
+        </mat-nav-list>      
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <a (click)="sidenav.toggle()"><mat-icon>home</mat-icon></a>
+        <span>My Application</span>
+      </mat-toolbar>
+  <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
 
