@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
 import { Client } from './client.model';
-
 @Injectable()
 export class ClientService {
 
@@ -10,7 +10,9 @@ export class ClientService {
   ];
 
 
-  constructor() { }
+  constructor(db: AngularFirestore) { 
+    db.collection('Client').valueChanges().subscribe();
+  }
 
   getAll(): Client[] {
     return this.list;

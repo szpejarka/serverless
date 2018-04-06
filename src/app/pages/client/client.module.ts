@@ -12,7 +12,7 @@ import { ClientFeatureComponent } from './client-feature/client-feature.componen
 
 const clientRoutes: Routes = [
   { path: 'client', component: ClientFeatureComponent, children: [
-    { path: '',  component: ClientListComponent,/* canActivate: [AuthGuard]*/ children: [
+    { path: '',  component: ClientListComponent, /* canActivate: [AuthGuard]*/ children: [
       { path: ':id', component: ClientDetailComponent, /*canActivate: [AuthGuard]*/}
     ]}
   ]}
@@ -31,6 +31,6 @@ const clientRoutes: Routes = [
         RouterModule.forChild(clientRoutes),
     ],
     exports: [RouterModule],
-    providers: [ClientService,AuthGuard]
+    providers: [ClientService, AuthGuard]
   })
   export class ClientModule { }
