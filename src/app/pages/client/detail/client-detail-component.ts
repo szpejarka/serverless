@@ -36,7 +36,7 @@ export class ClientDetailComponent implements OnInit {
         this.desc = this.client.Description;
 
       }
-    );
+    ); 
     /*
     this.client = this.route.paramMap
     .switchMap((params: ParamMap) =>

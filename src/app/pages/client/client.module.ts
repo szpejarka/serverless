@@ -7,15 +7,16 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ClientListItemComponent } from './list/client-list-item-component';
 import { ClientDetailComponent } from './detail/client-detail-component';
-import { AuthGuard } from '../auth-guard-service';
+//import { AuthGuard } from '../auth-guard-service';
 import { ClientFeatureComponent } from './client-feature/client-feature.component';
 
 const clientRoutes: Routes = [
-  { path: 'client', component: ClientFeatureComponent, children: [
-    { path: '',  component: ClientListComponent, /* canActivate: [AuthGuard]*/ children: [
+  { path: 'client', component: ClientFeatureComponent, 
+    children: [
+      { path: '',  component: ClientListComponent, /* canActivate: [AuthGuard]*/ },
       { path: ':id', component: ClientDetailComponent, /*canActivate: [AuthGuard]*/}
-    ]}
-  ]}
+    ]
+  }
 ];
 
 @NgModule({
@@ -31,6 +32,6 @@ const clientRoutes: Routes = [
         RouterModule.forChild(clientRoutes),
     ],
     exports: [RouterModule],
-    providers: [ClientService, AuthGuard]
+    providers: [ClientService]
   })
   export class ClientModule { }

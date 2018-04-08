@@ -1,22 +1,36 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Client } from './client.model';
+import { Observable } from 'rxjs/Rx';
+
 @Injectable()
 export class ClientService {
 
   list: Client[] = [
-    { ID: 0 , Name: 'Client 1', Address: 'Oak Park 1', Description: ''},
-    { ID: 1 , Name: 'Client 2', Address: 'Oak Park 2', Description: ''}
+    { ID: "c1" , Name: 'Client 1', Address: 'Oak Park 1', Description: ''},
+    { ID: "c2" , Name: 'Client 2', Address: 'Oak Park 2', Description: ''}
   ];
-
-
-  constructor(db: AngularFirestore) { 
-    db.collection('Client').valueChanges().subscribe();
+  db: AngularFireDatabase;
+  client: Observable<Client[]>;
+ 
+  constructor(db: AngularFireDatabase) { 
+    this.db = db;
+    this.client = this.db.list('client').snapshotChanges().map( vs => 
+      {
+        return vs.map( v => {
+          var c = v.payload.val() as Client;
+          c.ID = v.key;
+          return c;
+          }
+        )
+      } 
+    );
   }
-
-  getAll(): Client[] {
-    return this.list;
-  }
+ 
+  getAll(): Observable<Client[]> {
+    return  this.client;
+    //return Observable.of(this.list); 
+    }
 
   get(id: number): Client {
     return this.list[id];

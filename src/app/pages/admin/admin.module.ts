@@ -13,6 +13,6 @@ const adminRoutes: Routes = [
     imports: [
         RouterModule.forChild(adminRoutes),
     ],
-    exports: [LoginComponent],
+    exports: [],
   })
   export class AdminModule { }

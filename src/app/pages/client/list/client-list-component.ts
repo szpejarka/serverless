@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../service/client.service';
 import { Client } from '../service/client.model';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-client-list',
@@ -9,7 +10,7 @@ import { Client } from '../service/client.model';
 export class ClientListComponent implements OnInit {
 
   clientService: ClientService;
-  clients: Client[];
+  clients: Observable<Client[]>; 
 
   constructor(clientService: ClientService) {
     this.clientService = clientService;
