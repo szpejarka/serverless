@@ -14,7 +14,8 @@ import { Observable } from 'rxjs/Observable';
 export class ClientDetailComponent implements OnInit {
 
   clientService: ClientService;
-  @Input() client: Client;
+  @Input() client: Observable<Client>;
+  id: string;
   name: string;
   desc: string;
   address: string;
@@ -30,19 +31,19 @@ export class ClientDetailComponent implements OnInit {
     this.route.params.subscribe(
       (params) =>
       {
-        this.client = this.clientService.get(parseInt(params['id'], 10) );
-        this.name = this.client.Name;
-        this.address = this.client.Address;
-        this.desc = this.client.Description;
-
+        this.id = params['id'];
+        this.client = this.clientService.get( this.id );
+        this.client.subscribe((x) => {
+          this.name = x.Name;
+          this.address = x.Address;
+          this.desc = x.Description;
+        })
       }
     ); 
-    /*
-    this.client = this.route.paramMap
-    .switchMap((params: ParamMap) =>
-      this.clientService.get(parseInt( params.get('id') ) ));
-     
-      this.clientService.get(parseInt(params.get('id'),10));
-    */
+  }
+
+  save()
+  {
+    this.clientService.save({ID: this.id, Name: this.name, Description: this.desc, Address: this.address });
   }
 }

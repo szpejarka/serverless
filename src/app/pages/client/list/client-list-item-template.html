@@ -1,5 +1,10 @@
-<div>
-<label>Name:</label><a [routerLink]="['./', client.ID]"><span>{{client.Name}}</span></a> 
-<label>Description:</label><span>{{client.Description}}</span>
-<label>Address:</label><span>{{client.Address}}</span>
-</div>
+<mat-card>
+        <mat-card-title>
+            <label>Name:</label>
+            <a [routerLink]="['./', client.ID]"><span>{{client.Name}}</span></a>
+        </mat-card-title> 
+        <mat-card-content>
+                <label>Description:</label><span>{{client.Description}}</span>
+                <label>Address:</label><span>{{client.Address}}</span>               
+        </mat-card-content>
+</mat-card>

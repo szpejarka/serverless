@@ -1,6 +1,2 @@
 <h3>Client List</h3>
-<ul>
-    <li *ngFor="let client of clients | async ">
-        <app-client-list-item [client]="client"></app-client-list-item>
-    </li>
-</ul>
+<app-client-list-item *ngFor="let client of clients | async " [client]="client"></app-client-list-item>

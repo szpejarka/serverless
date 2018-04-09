@@ -9,6 +9,7 @@ import { ClientListItemComponent } from './list/client-list-item-component';
 import { ClientDetailComponent } from './detail/client-detail-component';
 //import { AuthGuard } from '../auth-guard-service';
 import { ClientFeatureComponent } from './client-feature/client-feature.component';
+import {MatCardModule} from '@angular/material/card';
 
 const clientRoutes: Routes = [
   { path: 'client', component: ClientFeatureComponent, 
@@ -30,6 +31,7 @@ const clientRoutes: Routes = [
       BrowserModule,
         FormsModule,
         RouterModule.forChild(clientRoutes),
+        MatCardModule,
     ],
     exports: [RouterModule],
     providers: [ClientService]

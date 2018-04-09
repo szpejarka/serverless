@@ -32,7 +32,13 @@ export class ClientService {
     //return Observable.of(this.list); 
     }
 
-  get(id: number): Client {
-    return this.list[id];
+  get(id: string): Observable<Client> {
+    return this.db.object('client/' + id).valueChanges() as Observable<Client>;
+  }
+
+  save(client: Client)
+  {
+    const clientRef = this.db.object('client/' + client.ID);
+    clientRef.update(client);
   }
 }
