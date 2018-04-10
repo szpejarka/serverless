@@ -1,7 +1,7 @@
-<mat-card>
+<mat-card  [routerLink]="['./', client.ID]">
         <mat-card-title>
             <label>Name:</label>
-            <a [routerLink]="['./', client.ID]"><span>{{client.Name}}</span></a>
+            <span>{{client.Name}}</span>
         </mat-card-title> 
         <mat-card-content>
                 <label>Description:</label><span>{{client.Description}}</span>

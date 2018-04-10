@@ -1,3 +1,4 @@
-<h3>Client List</h3>
-<app-client-list-item *ngFor="let client of clients | async " [client]="client"></app-client-list-item>
-<a mat-fab routerLink="add">Add</a>
+<div>
+    <app-client-list-item *ngFor="let client of clients | async " [client]="client"></app-client-list-item>
+    <a mat-fab routerLink="add">Add</a>
+</div>

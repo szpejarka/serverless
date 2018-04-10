@@ -16,10 +16,10 @@ export class ClientDetailComponent implements OnInit {
 
   clientService: ClientService;
   @Input() client: Observable<Client>;
-  id: string;
-  name: string;
-  desc: string;
-  address: string;
+  id = '';
+  name = '';
+  desc = '';
+  address = '';
 
 
   constructor(clientService: ClientService,  private route: ActivatedRoute,
@@ -60,4 +60,8 @@ export class ClientDetailComponent implements OnInit {
     this.location.back();
   }
 
+  remove() {
+    this.clientService.remove({ID: this.id} as Client);
+    this.location.back();   
+  }
 }

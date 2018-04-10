@@ -27,18 +27,25 @@ export class ClientService {
     }
 
   get(id: string): Observable<Client> {
-    return this.db.object('client/' + id).valueChanges() as Observable<Client>;
+    return this.clientRef(id).valueChanges() as Observable<Client>;
   }
 
   save(client: Client) {
-    const clientRef = this.db.object('client/' + client.ID);
-    clientRef.update(client);
+    this.clientRef(client.ID).update(client);
   }
 
   add(client: Client): string {
     const cr = this.db.list('client').push({});
     client.ID = cr.key;
-    cr.set(client);
+    cr.update(client);
     return client.ID;
   }
+  remove(client: Client) {
+    this.clientRef(client.ID).remove();
+  }
+
+  private clientRef(id: string) {
+    return this.db.object('client/' + id);
+  }
+
 }
