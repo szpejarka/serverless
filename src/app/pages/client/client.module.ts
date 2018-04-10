@@ -31,7 +31,7 @@ const clientRoutes: Routes = [
       BrowserModule,
         FormsModule,
         RouterModule.forChild(clientRoutes),
-        MatCardModule,
+        MatCardModule
     ],
     exports: [RouterModule],
     providers: [ClientService]
