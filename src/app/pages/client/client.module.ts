@@ -5,9 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { CoreModule } from '../../core/core.module';
+import { AuthGuard } from '../../core/auth.guard';
 import { ClientListItemComponent } from './list/client-list-item-component';
 import { ClientDetailComponent } from './detail/client-detail-component';
-//import { AuthGuard } from '../auth-guard-service';
 import { ClientFeatureComponent } from './client-feature/client-feature.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
@@ -15,10 +16,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
 const clientRoutes: Routes = [
-  { path: 'client', component: ClientFeatureComponent, 
+  { path: 'client', component: ClientFeatureComponent,
     children: [
-      { path: '',  component: ClientListComponent, /* canActivate: [AuthGuard]*/ },
-      { path: ':id', component: ClientDetailComponent, /*canActivate: [AuthGuard]*/}
+      { path: '',  component: ClientListComponent,  canActivate: [AuthGuard] },
+      { path: ':id', component: ClientDetailComponent, canActivate: [AuthGuard]}
     ]
   }
 ];
@@ -33,6 +34,7 @@ const clientRoutes: Routes = [
     imports: [
       BrowserModule,
         FormsModule,
+        CoreModule,
         RouterModule.forChild(clientRoutes),
         MatCardModule,
         MatListModule,

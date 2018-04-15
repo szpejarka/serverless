@@ -23,7 +23,7 @@ import { AdminModule } from './pages/admin/admin.module';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
-import { AuthService } from './pages/admin/core/auth.service';
+import { CoreModule } from './core/core.module';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/admin/login', pathMatch: 'full'}
@@ -36,6 +36,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CoreModule,
     ClientModule,
     AdminModule,
     RouterModule.forRoot(
@@ -52,7 +53,7 @@ const appRoutes: Routes = [
     AngularFirestoreModule,
     AngularFireDatabaseModule
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

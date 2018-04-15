@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../../core/auth.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-user-login',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) {  }
 
   ngOnInit() {
   }
