@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-client-list',
-  templateUrl: './client-list-template.html'
+  templateUrl: './client-list-template.html',
+  styleUrls: ['./client-list-template.css']
 })
 export class ClientListComponent implements OnInit {
 

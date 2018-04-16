@@ -1,7 +1,9 @@
 <mat-card  [routerLink]="['./', client.ID]">
-        <mat-card-title>
-            <label>Name:</label>
-            <span>{{client.Name}}</span>
+        <mat-card-title layout="row">
+            <span class="fill-remaining-space">{{client.Name}}</span>
+            <button mat-icon-button >
+                <mat-icon>more_vert</mat-icon>
+            </button>
         </mat-card-title> 
         <mat-card-content>
                 <label>Description:</label><span>{{client.Description}}</span>
